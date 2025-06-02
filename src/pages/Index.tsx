@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import Header from "../components/Header";
 import ChatMessage from "../components/ChatMessage";
 import ChatInput from "../components/ChatInput";
 import ChatSidebar from "../components/ChatSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import PromptSuggestions from "../components/PromptSuggestions";
 
 interface Message {
   id: string;
@@ -127,6 +127,13 @@ const Index = () => {
     }
   };
 
+  const handlePromptSelection = (prompt: string) => {
+    handleSendMessage(prompt);
+  };
+
+  // Verifica se há mensagens do usuário (não apenas do bot)
+  const hasUserMessages = messages.some(message => !message.isBot);
+
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
@@ -153,6 +160,10 @@ const Index = () => {
               
               {/* Messages Area */}
               <div className="flex-1 p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-20rem)]">
+                {!hasUserMessages && (
+                  <PromptSuggestions onSelectPrompt={handlePromptSelection} />
+                )}
+                
                 {messages.map((message) => (
                   <ChatMessage key={message.id} message={message} />
                 ))}
