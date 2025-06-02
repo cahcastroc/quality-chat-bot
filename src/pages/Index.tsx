@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Header from "../components/Header";
 import ChatMessage from "../components/ChatMessage";
@@ -136,7 +137,7 @@ const Index = () => {
 
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      <div className="min-h-screen flex w-full bg-gradient-to-br from-green-50 via-emerald-50 to-teal-100">
         <ChatSidebar
           chatHistory={chatHistory}
           currentChatId={currentChatId}
@@ -148,18 +149,20 @@ const Index = () => {
         <div className="flex-1 flex flex-col">
           <Header />
           
-          <main className="flex-1 container mx-auto px-4 py-6 max-w-4xl">
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 min-h-[calc(100vh-12rem)] flex flex-col">
+          <main className="flex-1 container mx-auto px-4 py-6 max-w-6xl flex flex-col gap-6">
+            
+            {/* Messages Container */}
+            <div className="flex-1 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 min-h-[calc(100vh-20rem)]">
               
-              <div className="flex items-center p-4 border-b border-slate-200">
+              <div className="flex items-center p-4 border-b border-green-200">
                 <SidebarTrigger className="mr-3" />
-                <h2 className="text-lg font-semibold text-slate-800">
+                <h2 className="text-lg font-semibold text-green-800">
                   {chatHistory.find(chat => chat.id === currentChatId)?.title || "Chat"}
                 </h2>
               </div>
               
               {/* Messages Area */}
-              <div className="flex-1 p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-20rem)]">
+              <div className="p-6 space-y-6 overflow-y-auto h-[calc(100vh-24rem)]">
                 {!hasUserMessages && (
                   <PromptSuggestions onSelectPrompt={handlePromptSelection} />
                 )}
@@ -169,23 +172,23 @@ const Index = () => {
                 ))}
                 
                 {isLoading && (
-                  <div className="flex items-center space-x-2 text-slate-500">
+                  <div className="flex items-center space-x-2 text-green-600">
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
-                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
                     </div>
                     <span className="text-sm">Assistente está digitando...</span>
                   </div>
                 )}
               </div>
-              
-              {/* Input Area */}
-              <div className="border-t border-slate-200 p-6">
-                <ChatInput onSendMessage={handleSendMessage} disabled={isLoading} />
-              </div>
-              
             </div>
+            
+            {/* Chat Input Container */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 p-6">
+              <ChatInput onSendMessage={handleSendMessage} disabled={isLoading} />
+            </div>
+            
           </main>
         </div>
       </div>

@@ -8,16 +8,16 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="relative">
-              <Bot className="w-8 h-8 text-blue-600" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+              <Bot className="w-8 h-8 text-green-600" />
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white"></div>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-slate-800">QA Assistant</h1>
-              <p className="text-sm text-slate-600">Especialista em Qualidade de Testes</p>
+              <h1 className="text-xl font-bold text-green-800">QA Assistant</h1>
+              <p className="text-sm text-green-600">Especialista em Qualidade de Testes</p>
             </div>
           </div>
           
-          <div className="flex items-center space-x-2 text-slate-600">
+          <div className="flex items-center space-x-2 text-green-600">
             <MessageCircle className="w-5 h-5" />
             <span className="text-sm font-medium">Online</span>
           </div>

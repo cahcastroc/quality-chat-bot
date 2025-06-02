@@ -43,7 +43,7 @@ const PromptSuggestions = ({ onSelectPrompt }: PromptSuggestionsProps) => {
 
   return (
     <div className="mb-8">
-      <h3 className="text-lg font-semibold text-slate-700 mb-4 text-center">
+      <h3 className="text-lg font-semibold text-green-700 mb-4 text-center">
         Sugestões para começar
       </h3>
       <Carousel className="w-full max-w-4xl mx-auto">
@@ -51,19 +51,19 @@ const PromptSuggestions = ({ onSelectPrompt }: PromptSuggestionsProps) => {
           {suggestions.map((suggestion, index) => (
             <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
               <Card 
-                className="cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-105 h-full"
+                className="cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-105 h-full border-green-200 hover:border-green-300"
                 onClick={() => onSelectPrompt(suggestion.prompt)}
               >
                 <CardContent className="p-4 h-full flex flex-col">
                   <div className="flex items-center space-x-3 mb-3">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <suggestion.icon className="w-5 h-5 text-blue-600" />
+                    <div className="p-2 bg-green-100 rounded-lg">
+                      <suggestion.icon className="w-5 h-5 text-green-600" />
                     </div>
-                    <h4 className="font-medium text-slate-800 text-sm">
+                    <h4 className="font-medium text-green-800 text-sm">
                       {suggestion.title}
                     </h4>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed flex-1">
+                  <p className="text-xs text-green-600 leading-relaxed flex-1">
                     {suggestion.prompt}
                   </p>
                 </CardContent>

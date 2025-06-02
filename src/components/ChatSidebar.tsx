@@ -41,7 +41,7 @@ const ChatSidebar = ({
       <SidebarHeader className="p-4">
         <Button 
           onClick={onNewChat}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+          className="w-full bg-green-600 hover:bg-green-700 text-white"
         >
           <Plus className="w-4 h-4 mr-2" />
           Novo Chat
@@ -61,9 +61,9 @@ const ChatSidebar = ({
                         className="flex items-center space-x-3 flex-1 min-w-0 cursor-pointer"
                         onClick={() => onSelectChat(chat.id)}
                       >
-                        <MessageCircle className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                        <MessageCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
                         <div className="flex-1 min-w-0">
-                          <p className={`text-sm font-medium truncate ${chat.id === currentChatId ? 'text-blue-600' : ''}`}>
+                          <p className={`text-sm font-medium truncate ${chat.id === currentChatId ? 'text-green-600' : ''}`}>
                             {chat.title}
                           </p>
                           <p className="text-xs text-muted-foreground truncate">

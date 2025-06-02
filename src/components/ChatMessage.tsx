@@ -21,7 +21,7 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
         
         {/* Avatar */}
         <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
-          isBot ? 'bg-blue-100 text-blue-600' : 'bg-green-100 text-green-600'
+          isBot ? 'bg-green-100 text-green-600' : 'bg-emerald-100 text-emerald-600'
         }`}>
           {isBot ? <Bot className="w-5 h-5" /> : <User className="w-5 h-5" />}
         </div>
@@ -29,12 +29,12 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
         {/* Message Content */}
         <div className={`rounded-2xl px-4 py-3 ${
           isBot 
-            ? 'bg-slate-100 text-slate-800' 
-            : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
+            ? 'bg-green-50 text-green-800 border border-green-200' 
+            : 'bg-gradient-to-r from-green-500 to-emerald-600 text-white'
         }`}>
           <p className="text-sm leading-relaxed">{content}</p>
           <div className={`text-xs mt-2 ${
-            isBot ? 'text-slate-500' : 'text-blue-100'
+            isBot ? 'text-green-500' : 'text-green-100'
           }`}>
             {timestamp.toLocaleTimeString('pt-BR', { 
               hour: '2-digit', 
